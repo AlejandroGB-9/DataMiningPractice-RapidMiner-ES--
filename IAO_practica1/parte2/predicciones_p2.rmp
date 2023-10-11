@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?><process version="10.2.000">
+  <context>
+    <input/>
+    <output/>
+    <macros/>
+  </context>
+  <operator activated="true" class="process" compatibility="10.2.000" expanded="true" name="Process">
+    <parameter key="logverbosity" value="init"/>
+    <parameter key="random_seed" value="2001"/>
+    <parameter key="send_mail" value="never"/>
+    <parameter key="notification_email" value=""/>
+    <parameter key="process_duration_for_mail" value="30"/>
+    <parameter key="encoding" value="SYSTEM"/>
+    <process expanded="true">
+      <operator activated="true" class="read_csv" compatibility="10.2.000" expanded="true" height="68" name="Read CSV" width="90" x="45" y="136">
+        <parameter key="csv_file" value="C:/Users/aleti/OneDrive/Escritorio/UNIVERSIDAD/IA en las organizaciones/p1/it_vac_prediccionesdia2.csv"/>
+        <parameter key="column_separators" value=";"/>
+        <parameter key="trim_lines" value="false"/>
+        <parameter key="use_quotes" value="true"/>
+        <parameter key="quotes_character" value="&quot;"/>
+        <parameter key="escape_character" value="\"/>
+        <parameter key="skip_comments" value="true"/>
+        <parameter key="comment_characters" value="#"/>
+        <parameter key="starting_row" value="1"/>
+        <parameter key="parse_numbers" value="true"/>
+        <parameter key="decimal_character" value="."/>
+        <parameter key="grouped_digits" value="false"/>
+        <parameter key="grouping_character" value=","/>
+        <parameter key="infinity_representation" value=""/>
+        <parameter key="date_format" value=""/>
+        <parameter key="first_row_as_names" value="true"/>
+        <list key="annotations"/>
+        <parameter key="time_zone" value="SYSTEM"/>
+        <parameter key="locale" value="English (United States)"/>
+        <parameter key="encoding" value="UTF-8"/>
+        <parameter key="read_all_values_as_polynominal" value="false"/>
+        <list key="data_set_meta_data_information">
+          <parameter key="0" value="Confirmed_cases - 44.true.integer.attribute"/>
+          <parameter key="1" value="Confirmed_cases - 43.true.integer.attribute"/>
+          <parameter key="2" value="Confirmed_cases - 42.true.integer.attribute"/>
+          <parameter key="3" value="Confirmed_cases - 41.true.integer.attribute"/>
+          <parameter key="4" value="Confirmed_cases - 40.true.integer.attribute"/>
+          <parameter key="5" value="Confirmed_cases - 39.true.integer.attribute"/>
+          <parameter key="6" value="Confirmed_cases - 38.true.integer.attribute"/>
+          <parameter key="7" value="Confirmed_cases - 37.true.integer.attribute"/>
+          <parameter key="8" value="Confirmed_cases - 36.true.integer.attribute"/>
+          <parameter key="9" value="Confirmed_cases - 35.true.integer.attribute"/>
+          <parameter key="10" value="Confirmed_cases - 34.true.integer.attribute"/>
+          <parameter key="11" value="Confirmed_cases - 33.true.integer.attribute"/>
+          <parameter key="12" value="Confirmed_cases - 32.true.integer.attribute"/>
+          <parameter key="13" value="Confirmed_cases - 31.true.integer.attribute"/>
+          <parameter key="14" value="Confirmed_cases - 30.true.integer.attribute"/>
+          <parameter key="15" value="Confirmed_cases - 29.true.integer.attribute"/>
+          <parameter key="16" value="Confirmed_cases - 28.true.integer.attribute"/>
+          <parameter key="17" value="Confirmed_cases - 27.true.integer.attribute"/>
+          <parameter key="18" value="Confirmed_cases - 26.true.integer.attribute"/>
+          <parameter key="19" value="Confirmed_cases - 25.true.integer.attribute"/>
+          <parameter key="20" value="Confirmed_cases - 24.true.integer.attribute"/>
+          <parameter key="21" value="Confirmed_cases - 23.true.integer.attribute"/>
+          <parameter key="22" value="Confirmed_cases - 22.true.integer.attribute"/>
+          <parameter key="23" value="Confirmed_cases - 21.true.integer.attribute"/>
+          <parameter key="24" value="Confirmed_cases - 20.true.integer.attribute"/>
+          <parameter key="25" value="Confirmed_cases - 19.true.integer.attribute"/>
+          <parameter key="26" value="Confirmed_cases - 18.true.integer.attribute"/>
+          <parameter key="27" value="Confirmed_cases - 17.true.integer.attribute"/>
+          <parameter key="28" value="Confirmed_cases - 16.true.integer.attribute"/>
+          <parameter key="29" value="Confirmed_cases - 15.true.integer.attribute"/>
+          <parameter key="30" value="Confirmed_cases - 14.true.integer.attribute"/>
+          <parameter key="31" value="Confirmed_cases - 13.true.integer.attribute"/>
+          <parameter key="32" value="Confirmed_cases - 12.true.integer.attribute"/>
+          <parameter key="33" value="Confirmed_cases - 11.true.integer.attribute"/>
+          <parameter key="34" value="Confirmed_cases - 10.true.integer.attribute"/>
+          <parameter key="35" value="Confirmed_cases - 9.true.integer.attribute"/>
+          <parameter key="36" value="Confirmed_cases - 8.true.integer.attribute"/>
+          <parameter key="37" value="Confirmed_cases - 7.true.integer.attribute"/>
+          <parameter key="38" value="Confirmed_cases - 6.true.integer.attribute"/>
+          <parameter key="39" value="Confirmed_cases - 5.true.integer.attribute"/>
+          <parameter key="40" value="Confirmed_cases - 4.true.integer.attribute"/>
+          <parameter key="41" value="Confirmed_cases - 3.true.integer.attribute"/>
+          <parameter key="42" value="Confirmed_cases - 2.true.integer.attribute"/>
+          <parameter key="43" value="Confirmed_cases - 1.true.integer.attribute"/>
+          <parameter key="44" value="Confirmed_cases - 0.true.integer.attribute"/>
+          <parameter key="45" value="Confirmed_cases + 1 (horizon).true.polynominal.attribute"/>
+          <parameter key="46" value="att47.false.polynominal.attribute"/>
+          <parameter key="47" value="att48.false.polynominal.attribute"/>
+        </list>
+        <parameter key="read_not_matching_values_as_missings" value="false"/>
+      </operator>
+      <operator activated="true" class="retrieve" compatibility="10.2.000" expanded="true" height="68" name="Retrieve" width="90" x="112" y="289">
+        <parameter key="repository_entry" value="//Local Repository/od1"/>
+      </operator>
+      <operator activated="true" class="apply_model" compatibility="10.2.000" expanded="true" height="82" name="Apply Model" width="90" x="313" y="187">
+        <list key="application_parameters"/>
+      </operator>
+      <connect from_op="Read CSV" from_port="output" to_op="Apply Model" to_port="unlabelled data"/>
+      <connect from_op="Retrieve" from_port="output" to_op="Apply Model" to_port="model"/>
+      <connect from_op="Apply Model" from_port="labelled data" to_port="result 1"/>
+      <portSpacing port="source_input 1" spacing="0"/>
+      <portSpacing port="sink_result 1" spacing="0"/>
+      <portSpacing port="sink_result 2" spacing="0"/>
+    </process>
+  </operator>
+</process>
